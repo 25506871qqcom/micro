@@ -8,3 +8,6 @@ micro.iml
 *.iml
 /.idea/workspace.xml
 /.idea/*
+/eureka_server/.mvn/
+/eureka_server/mvnw
+/eureka_server/mvnw.cmd
