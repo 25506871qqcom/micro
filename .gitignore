@@ -13,3 +13,4 @@ micro.iml
 /eureka_server/mvnw.cmd
 /product_service/mvnw
 /product_service/pom.xml
+/product_service/.mvn/
