@@ -1,16 +1,1 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea/
-micro.iml
-/.idea/checkstyle-idea.xml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/vcs.xml
-*.iml
-/.idea/workspace.xml
-/.idea/*
-/eureka_server/.mvn/
-/eureka_server/mvnw
-/eureka_server/mvnw.cmd
-/product_service/mvnw
-/product_service/pom.xml
-/product_service/.mvn/
