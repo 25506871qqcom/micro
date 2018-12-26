@@ -10,6 +10,9 @@ public class Product implements Serializable {
     private int score ;
 
 
+    public Product() {
+    }
+
     public Product(int id, String name, int price, int score) {
         this.id = id;
         this.name = name;

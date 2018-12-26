@@ -34,7 +34,8 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         Map<String,Object> obj = restTemplate.getForObject(url+productId ,Map.class);
 //        {"id":1,"name":"iphone from port  8771 from port  8771","price":9999,"score":10}
         System.out.println(JSON.toJSONString(obj));
-
+        productOrder.setProductName(obj.get("name").toString());
+        productOrder.setPrice(Integer.parseInt(obj.get("price").toString()));
         return productOrder;
     }
 }
