@@ -35,6 +35,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product findById(int id) {
-        return daoMap.get(id);
+
+        Map<String,Object> result= new HashMap<>() ;
+
+
+
+
+        return
+
+                daoMap.get(id);
     }
 }
