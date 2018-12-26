@@ -14,10 +14,11 @@ public class OrderServiceApplication {
 	}
 
 
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate(){
-		return  new RestTemplate();
-	}
+	//第一种方法
+//	@Bean
+//	@LoadBalanced
+//	public RestTemplate restTemplate(){
+//		return  new RestTemplate();
+//	}
 }
 
