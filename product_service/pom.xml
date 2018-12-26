@@ -11,12 +11,12 @@
 	<groupId>net.xdclass</groupId>
 	<artifactId>prodcut_service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo2</name>
+	<name>prodcut_service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+		<spring-cloud.version>Finchley.RC2</spring-cloud.version>
 	</properties>
 
 	<dependencies>
