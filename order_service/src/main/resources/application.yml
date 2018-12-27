@@ -24,6 +24,10 @@ feign:
   hystrix:
     enabled: true
 
+
+
+
+
 #product-service:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
