@@ -1,12 +1,16 @@
 package net.xdclass.order_service.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.JsonNode;
 import net.xdclass.order_service.domain.ProductOrder;
+import net.xdclass.order_service.service.ProductClient;
 import net.xdclass.order_service.service.ProductOrderService;
+import net.xdclass.order_service.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,8 +26,11 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 //    @Autowired
 //    RestTemplate restTemplate ;
 
+//    @Autowired
+//    private LoadBalancerClient loadBalancer;
+
     @Autowired
-    private LoadBalancerClient loadBalancer;
+    private ProductClient productClient ;
 
     @Override
     public ProductOrder save(int userId, int productId) {
@@ -41,14 +48,22 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 //        System.out.println("第一种方法");
 
         //第二种方法
-        ServiceInstance instance = loadBalancer.choose("product-service");
-        String url = String.format("http://%s:%s/api/v1/product/find?id="+productId,instance.getHost(),instance.getPort());
-        RestTemplate restTemplate = new RestTemplate() ;
-        Map obj = restTemplate.getForObject(url, Map.class);
-        System.out.println(JSON.toJSONString(obj));
-        System.out.println("第二种方法");
-        productOrder.setProductName(obj.get("name").toString());
-        productOrder.setPrice(Integer.parseInt(obj.get("price").toString()));
+//        ServiceInstance instance = loadBalancer.choose("product-service");
+//        String url = String.format("http://%s:%s/api/v1/product/find?id="+productId,instance.getHost(),instance.getPort());
+//        RestTemplate restTemplate = new RestTemplate() ;
+//        Map obj = restTemplate.getForObject(url, Map.class);
+//        System.out.println(JSON.toJSONString(obj));
+//        System.out.println("第二种方法");
+
+
+         String response = productClient.findById(productId);
+
+        JsonNode jsonNode = JsonUtils.str2JsonNode(response) ;
+
+
+
+        productOrder.setProductName(jsonNode.get("name").toString());
+        productOrder.setPrice(Integer.parseInt(jsonNode.get("price").toString()));
         return productOrder;
     }
 }
