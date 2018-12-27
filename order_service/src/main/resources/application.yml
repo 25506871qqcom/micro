@@ -25,9 +25,20 @@ feign:
     enabled: true
 
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 
-
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#	      thread:
+#	        timeoutInMilliseconds: 1000
 #product-service:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

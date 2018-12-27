@@ -34,9 +34,7 @@ public class OrderController {
     private StringRedisTemplate redisTemplate ;
 
     @RequestMapping("save")
-    @HystrixCommand(fallbackMethod = "saveOrderFail" ,commandProperties = {
-            @HystrixProperty(name="",value = "")
-    })
+    @HystrixCommand(fallbackMethod = "saveOrderFail" )
     public Object save(@RequestParam("userId") int userId, @RequestParam("productId") int productId , HttpServletRequest request){
 
         Map<String,Object> msg = new HashMap<>();
