@@ -1,0 +1,33 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: api-gateway
+
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+#/order-service/api/v1/order/save?userId=1&productId=3
+zuul:
+  routes:
+    order-service: /door/order/**
+    product-service: /door/product/**
+  ignored-services: product-service
+  sensitive_headers:
+
+
+
+
+
+
+
+
+
+
+
