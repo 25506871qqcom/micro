@@ -63,6 +63,7 @@ public class OrderRateLimiterFilter extends ZuulFilter {
             System.out.println("=================get in rate limiter");
             requestContext.setSendZuulResponse(false);
             requestContext.setResponseStatusCode(HttpStatus.TOO_MANY_REQUESTS.value() );
+            requestContext.setResponseBody(HttpStatus.TOO_MANY_REQUESTS.getReasonPhrase());
         }
 
         return null;
