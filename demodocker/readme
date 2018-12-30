@@ -41,3 +41,7 @@ CONTAINER ID        IMAGE                         COMMAND                  CREAT
 2557f2907a81        xdclass/eureka_server         "java -jar /app.jar"     About a minute ago   Up About a minute   0.0.0.0:8761->8761/tcp                                                                       eureka_server
 
 
+  docker search rabbitmq:management
+  docker pull rabbitmq:management
+  docker run -d --name "xdclass_mq" -p 5672:5672 -p 15672:15672 rabbitmq:management
+
