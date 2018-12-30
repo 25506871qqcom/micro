@@ -1,0 +1,29 @@
+cd demodocker
+
+mvn install dockerfile:build
+
+liuyongpingdeMacBook-Pro:~ lyp$ docker images  | grep docker
+xdclass/demodocker                 latest              425424afcb85        19 minutes ago      119MB
+liuyongpingdeMacBook-Pro:~ lyp$
+
+
+<docker.image.prefix>xdclass</docker.image.prefix>
+
+
+</parent>
+	<groupId>com.example</groupId>
+	<artifactId>demodocker</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demodocker</name>
+
+
+根据上面的三个因素 生成了 image的名称 tag
+	<configuration>
+<repository>${docker.image.prefix}/${project.artifactId}</repository>
+
+
+
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
