@@ -6,6 +6,8 @@ import net.xdclass.order_service.domain.ProductOrder;
 import net.xdclass.order_service.service.ProductClient;
 import net.xdclass.order_service.service.ProductOrderService;
 import net.xdclass.order_service.utils.JsonUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -22,6 +24,8 @@ import java.util.UUID;
 @Service
 public class ProductOrderServiceImpl implements ProductOrderService {
 
+    private final Logger logger  = LoggerFactory.getLogger(getClass()) ;
+
     //第一种方法 与 application中的 bean 配合使用
 //    @Autowired
 //    RestTemplate restTemplate ;
@@ -34,7 +38,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
     @Override
     public ProductOrder save(int userId, int productId) {
-
+        logger.info("order service save");
         ProductOrder productOrder = new ProductOrder();
         productOrder.setCraeteTime(new Date());
         productOrder.setTradeNo(UUID.randomUUID().toString());
