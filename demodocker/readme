@@ -27,3 +27,17 @@ ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
+
+
+docker run -d --name "demo" -p 8877:8080 xdclass/demodocker
+
+liuyongpingdeMacBook-Pro:~ lyp$
+
+docker run -d --name eureka_server -p 8761:8761 xdclass/eureka_server
+
+
+liuyongpingdeMacBook-Pro:~ lyp$ docker ps
+CONTAINER ID        IMAGE                         COMMAND                  CREATED              STATUS              PORTS                                                                                        NAMES
+2557f2907a81        xdclass/eureka_server         "java -jar /app.jar"     About a minute ago   Up About a minute   0.0.0.0:8761->8761/tcp                                                                       eureka_server
+
+
